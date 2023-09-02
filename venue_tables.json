@@ -1,0 +1,221 @@
+{
+    "Tables": [
+      {
+        "TableName": "Venue",
+        "Columns": [
+          "VenueID",
+          "VenueName",
+          "VenueAddress",
+          "ContactInformation",
+          "VenueTypeID",
+          "VenueOwnerManagerInformation",
+          "VenueDescription",
+          "YearOfEstablishment",
+          "OwnershipType",
+          "UniqueIdentifier"
+        ]
+      },
+      {
+        "TableName": "SocialMediaHandles",
+        "Columns": [
+          "SocialMediaHandleID",
+          "VenueID",
+          "Platform",
+          "Handle"
+        ]
+      },
+      {
+        "TableName": "VenueType",
+        "Columns": [
+          "VenueTypeID",
+          "VenueType"
+        ]
+      },
+      {
+        "TableName": "VenueCategory",
+        "Columns": [
+          "VenueCategoryID",
+          "VenueCategory"
+        ]
+      },
+      {
+        "TableName": "VenueFacilities",
+        "Columns": [
+          "VenueFacilitiesID",
+          "VenueID",
+          "TotalArea",
+          "IndoorArea",
+          "OutdoorArea",
+          "SeatingCapacity",
+          "StandingCapacity",
+          "NumberOfRoomsSpaces",
+          "LayoutFloorPlan",
+          "AccessibilityFeatures",
+          "StageAvailability",
+          "PodiumAvailability",
+          "TechnicalEquipment",
+          "ParkingFacilities",
+          "ParkingCapacity",
+          "ValetParkingAvailability",
+          "ProximityToPublicTransport",
+          "ProximityToMajorRoads",
+          "ProximityToAirport",
+          "SurroundingEnvironment",
+          "NoiseRestrictions",
+          "CeilingHeight",
+          "LoadInLoadOutFacilities",
+          "GreenRoomAvailability",
+          "DressingRoomAvailability",
+          "KitchenFacilities",
+          "RestroomFacilities",
+          "PowerSupplyBackup",
+          "AirConditioningHeating",
+          "NaturalLightAvailability",
+          "OutdoorSpaceDescription",
+          "ScenicView",
+          "SmokingArea",
+          "PetFriendly",
+          "ChildFriendly",
+          "NoiseLevel",
+          "NearbyParkingFacilities",
+          "SecurityFeatures",
+          "FireSafetyMeasures"
+        ]
+      },
+      {
+        "TableName": "VenueServices",
+        "Columns": [
+          "VenueServicesID",
+          "VenueID",
+          "CateringServices",
+          "TypesOfCuisine",
+          "BarServices",
+          "AlcoholLicensing",
+          "DecorServices",
+          "EventPlanningServices",
+          "AudioVisualServices",
+          "InternetWiFiAvailability",
+          "AccommodationAvailability",
+          "NumberOfRoomsForAccommodation",
+          "TypesOfRooms",
+          "FurnitureAvailability",
+          "TypesOfFurnitureAvailable",
+          "DecorRestrictions",
+          "CleaningServices",
+          "OnSiteStaffAvailability",
+          "EventCoordinationServices",
+          "EquipmentRentalOptions",
+          "StorageFacilities",
+          "SignageBannerAllowed",
+          "SpecialLighting",
+          "DanceFloor",
+          "OutdoorHeating",
+          "TentingFacilities",
+          "CoatCheck",
+          "BridalSuite",
+          "ChildCareFacilities",
+          "PetCareFacilities"
+        ]
+      },
+      {
+        "TableName": "VenueBooking",
+        "Columns": [
+          "VenueBookingID",
+          "VenueID",
+          "Availability",
+          "MinimumNoticePeriod",
+          "CancellationPolicy",
+          "Pricing",
+          "PaymentMethodsAccepted",
+          "InsuranceRequirements",
+          "BookingChannels",
+          "DepositRequirement",
+          "DepositAmount",
+          "DepositRefundPolicy",
+          "FullPaymentDueDate",
+          "DiscountsAvailable",
+          "TypesOfDiscounts",
+          "MinimumBookingDuration",
+          "MaximumBookingDuration",
+          "OvertimePolicy",
+          "SetupTakedownTimeIncluded",
+          "AdditionalCosts",
+          "ContractRequirement",
+          "ContractTerms",
+          "CancellationByVenuePolicy",
+          "ForceMajeurePolicy"
+        ]
+      },
+      {
+        "TableName": "VenueEvents",
+        "Columns": [
+          "VenueEventsID",
+          "VenueID",
+          "TypesOfEventsHosted",
+          "ClientTestimonialsAndReviews",
+          "PhotosAndVideosFromPastEvents",
+          "NumberOfEventsHosted",
+          "NotableEventsOrClients",
+          "ClientReferences",
+          "EventSuccessStories",
+          "EventFailuresLessonsLearned",
+          "AverageEventRating",
+          "EventPortfolio",
+          "MediaMentions",
+          "EventFrequency",
+          "PreferredEventTypes"
+        ]
+      },
+      {
+        "TableName": "VenueLegalCompliance",
+        "Columns": [
+          "VenueLegalComplianceID",
+          "VenueID",
+          "LicensesAndPermits",
+          "SafetyMeasures",
+          "BusinessRegistrationDetails",
+          "TaxComplianceStatus",
+          "HealthAndSafetyCertifications",
+          "FireSafetyCompliance",
+          "FoodSafetyCertifications",
+          "AlcoholLicensingDetails",
+          "MusicLicensingDetails",
+          "InsuranceCoverageDetails",
+          "AccessibilityCompliance",
+          "PrivacyPolicy",
+          "TermsAndConditions",
+          "DisputeResolutionMechanisms",
+          "SustainabilityPractices",
+          "NoisePollutionControls"
+        ]
+      },
+      {
+        "TableName": "VenuePreferredVendors",
+        "Columns": [
+          "VenuePreferredVendorsID",
+          "VenueID",
+          "PreferredCateringVendor",
+          "PreferredDesignAndDecorVendor",
+          "PreferredTravelVendor",
+          "PreferredBeautyVendor",
+          "PreferredPhotographyVendor",
+          "PreferredEventPlanningVendor",
+          "PreferredAudioVisualEquipmentVendor",
+          "PreferredEntertainmentVendor",
+          "PreferredAccommodationVendor",
+          "PreferredPrintingAndSignageVendor",
+          "PreferredSecurityServicesVendor"
+        ]
+      },
+      {
+        "TableName": "AdditionalInformation",
+        "Columns": [
+          "AdditionalInformationID",
+          "VenueID",
+          "TargetAudience",
+          "CompetitiveLandscape"
+        ]
+      }
+    ]
+  }
+  
