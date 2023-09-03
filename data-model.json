@@ -1,7 +1,7 @@
 {
   "tables": [
     {
-      "table_name": "Venues",
+      "table_name": "venues",
       "columns": [
         "venue_id",
         "name",
@@ -12,11 +12,12 @@
         "description",
         "year_of_establishment",
         "ownership_type",
-        "unique_identifier"
+        "unique_identifier",
+        "photos"
       ]
     },
     {
-      "table_name": "Social_media_handles",
+      "table_name": "social_media_handles",
       "columns": [
         "social_media_handle_id",
         "venue_id",
@@ -25,21 +26,21 @@
       ]
     },
     {
-      "table_name": "Venue_types",
+      "table_name": "venue_types",
       "columns": [
         "venue_type_id",
         "venue_type"
       ]
     },
     {
-      "table_name": "Venue_categories",
+      "table_name": "venue_categories",
       "columns": [
         "venue_category_id",
         "venue_category"
       ]
     },
     {
-      "table_name": "Venue_facilities",
+      "table_name": "venue_facilities",
       "columns": [
         "venue_facilities_id",
         "venue_id",
@@ -83,7 +84,7 @@
       ]
     },
     {
-      "table_name": "Venue_services",
+      "table_name": "venue_services",
       "columns": [
         "venue_services_id",
         "venue_id",
@@ -118,7 +119,7 @@
       ]
     },
     {
-      "table_name": "Venue_bookings",
+      "table_name": "venue_bookings",
       "columns": [
         "venue_booking_id",
         "venue_id",
@@ -147,7 +148,7 @@
       ]
     },
     {
-      "table_name": "Venue_events",
+      "table_name": "venue_events",
       "columns": [
         "venue_events_id",
         "venue_id",
@@ -167,7 +168,7 @@
       ]
     },
     {
-      "table_name": "Venue_legal_compliances",
+      "table_name": "venue_legal_compliances",
       "columns": [
         "venue_legal_compliance_id",
         "venue_id",
@@ -190,7 +191,7 @@
       ]
     },
     {
-      "table_name": "Venue_preferred_vendors",
+      "table_name": "venue_preferred_vendors",
       "columns": [
         "venue_preferred_vendors_id",
         "venue_id",
@@ -205,6 +206,25 @@
         "preferred_accommodation_vendor",
         "preferred_printing_and_signage_vendor",
         "preferred_security_services_vendor"
+      ]
+    }
+    {
+      "table_name": "vendors",
+      "columns": [
+        "vendor_id",
+        "name",
+        "contact_information",
+        "vendor_type",
+        "products_or_services",
+        "address",
+        "website",
+        "email",
+        "phone_number",
+        "description",
+        "availability",
+        "insurance_coverage",
+        "licenses_and_permits",
+        "preferred_venues"
       ]
     }
   ]
