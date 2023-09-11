@@ -1,0 +1,231 @@
+{
+  "tables": [
+    {
+      "table_name": "venues",
+      "columns": [
+        "venue_id",
+        "name",
+        "address",
+        "contact_information",
+        "venue_type_id",
+        "owner_manager_information",
+        "description",
+        "year_of_establishment",
+        "ownership_type",
+        "unique_identifier",
+        "photos"
+      ]
+    },
+    {
+      "table_name": "social_media_handles",
+      "columns": [
+        "social_media_handle_id",
+        "venue_id",
+        "platform",
+        "handle"
+      ]
+    },
+    {
+      "table_name": "venue_types",
+      "columns": [
+        "venue_type_id",
+        "venue_type"
+      ]
+    },
+    {
+      "table_name": "venue_categories",
+      "columns": [
+        "venue_category_id",
+        "venue_category"
+      ]
+    },
+    {
+      "table_name": "venue_facilities",
+      "columns": [
+        "venue_facilities_id",
+        "venue_id",
+        "total_area",
+        "indoor_area",
+        "outdoor_area",
+        "seating_capacity",
+        "standing_capacity",
+        "number_of_rooms_spaces",
+        "layout_floor_plan",
+        "accessibility_features",
+        "stage_availability",
+        "podium_availability",
+        "technical_equipment",
+        "parking_facilities",
+        "parking_capacity",
+        "valet_parking_availability",
+        "proximity_to_public_transport",
+        "proximity_to_major_roads",
+        "proximity_to_airport",
+        "surrounding_environment",
+        "noise_restrictions",
+        "ceiling_height",
+        "load_in_load_out_facilities",
+        "green_room_availability",
+        "dressing_room_availability",
+        "kitchen_facilities",
+        "restroom_facilities",
+        "power_supply_backup",
+        "air_conditioning_heating",
+        "natural_light_availability",
+        "outdoor_space_description",
+        "scenic_view",
+        "smoking_area",
+        "pet_friendly",
+        "child_friendly",
+        "noise_level",
+        "nearby_parking_facilities",
+        "security_features",
+        "fire_safety_measures"
+      ]
+    },
+    {
+      "table_name": "venue_services",
+      "columns": [
+        "venue_services_id",
+        "venue_id",
+        "catering_services",
+        "types_of_cuisine",
+        "bar_services",
+        "alcohol_licensing",
+        "decor_services",
+        "event_planning_services",
+        "audio_visual_services",
+        "internet_wifi_availability",
+        "accommodation_availability",
+        "number_of_rooms_for_accommodation",
+        "types_of_rooms",
+        "furniture_availability",
+        "types_of_furniture_available",
+        "decor_restrictions",
+        "cleaning_services",
+        "on_site_staff_availability",
+        "event_coordination_services",
+        "equipment_rental_options",
+        "storage_facilities",
+        "signage_banner_allowed",
+        "special_lighting",
+        "dance_floor",
+        "outdoor_heating",
+        "tenting_facilities",
+        "coat_check",
+        "bridal_suite",
+        "child_care_facilities",
+        "pet_care_facilities"
+      ]
+    },
+    {
+      "table_name": "venue_bookings",
+      "columns": [
+        "venue_booking_id",
+        "venue_id",
+        "availability",
+        "minimum_notice_period",
+        "cancellation_policy",
+        "pricing",
+        "payment_methods_accepted",
+        "insurance_requirements",
+        "booking_channels",
+        "deposit_requirement",
+        "deposit_amount",
+        "deposit_refund_policy",
+        "full_payment_due_date",
+        "discounts_available",
+        "types_of_discounts",
+        "minimum_booking_duration",
+        "maximum_booking_duration",
+        "overtime_policy",
+        "setup_takedown_time_included",
+        "additional_costs",
+        "contract_requirement",
+        "contract_terms",
+        "cancellation_by_venue_policy",
+        "force_majeure_policy"
+      ]
+    },
+    {
+      "table_name": "venue_events",
+      "columns": [
+        "venue_events_id",
+        "venue_id",
+        "types_of_events_hosted",
+        "client_testimonials_and_reviews",
+        "photos_and_videos_from_past_events",
+        "number_of_events_hosted",
+        "notable_events_or_clients",
+        "client_references",
+        "event_success_stories",
+        "event_failures_lessons_learned",
+        "average_event_rating",
+        "event_portfolio",
+        "media_mentions",
+        "event_frequency",
+        "preferred_event_types"
+      ]
+    },
+    {
+      "table_name": "venue_legal_compliances",
+      "columns": [
+        "venue_legal_compliance_id",
+        "venue_id",
+        "licenses_and_permits",
+        "safety_measures",
+        "business_registration_details",
+        "tax_compliance_status",
+        "health_and_safety_certifications",
+        "fire_safety_compliance",
+        "food_safety_certifications",
+        "alcohol_licensing_details",
+        "music_licensing_details",
+        "insurance_coverage_details",
+        "accessibility_compliance",
+        "privacy_policy",
+        "terms_and_conditions",
+        "dispute_resolution_mechanisms",
+        "sustainability_practices",
+        "noise_pollution_controls"
+      ]
+    },
+    {
+      "table_name": "venue_preferred_vendors",
+      "columns": [
+        "venue_preferred_vendors_id",
+        "venue_id",
+        "preferred_catering_vendor",
+        "preferred_design_and_decor_vendor",
+        "preferred_travel_vendor",
+        "preferred_beauty_vendor",
+        "preferred_photography_vendor",
+        "preferred_event_planning_vendor",
+        "preferred_audio_visual_equipment_vendor",
+        "preferred_entertainment_vendor",
+        "preferred_accommodation_vendor",
+        "preferred_printing_and_signage_vendor",
+        "preferred_security_services_vendor"
+      ]
+    }
+    {
+      "table_name": "vendors",
+      "columns": [
+        "vendor_id",
+        "name",
+        "contact_information",
+        "vendor_type",
+        "products_or_services",
+        "address",
+        "website",
+        "email",
+        "phone_number",
+        "description",
+        "availability",
+        "insurance_coverage",
+        "licenses_and_permits",
+        "preferred_venues"
+      ]
+    }
+  ]
+}
