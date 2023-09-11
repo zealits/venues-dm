@@ -2,7 +2,7 @@ asgiref==3.7.2
 Django==3.2.21
 django-cors-headers==4.1.0
 djangorestframework==3.14.0
-mysqlclient==2.2.0
+mysqlclient==2.1.1
 Pillow==10.0.0
 pytz==2023.3.post1
 sqlparse==0.4.4
