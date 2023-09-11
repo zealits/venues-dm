@@ -59,7 +59,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
 ]
 
-ROOT_URLCONF = 'events.urls'
+ROOT_URLCONF = 'venues_dm.urls'
 
 TEMPLATES = [
     {
