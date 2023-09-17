@@ -4,7 +4,7 @@ from django.db import models
 
         
 # Define the Venue Type Model
-class VenueType(models.Model):
+class VenueTypes(models.Model):
     """
     Represents different types of venues.
     """
@@ -16,7 +16,7 @@ class VenueType(models.Model):
 
 
 # Define the Venue Model
-class Venue(models.Model):
+class Venues(models.Model):
     """
     Represents information about venues.
     """
@@ -25,24 +25,22 @@ class Venue(models.Model):
     address = models.TextField(default=None, null=True, blank=True)
     email = models.EmailField(default=None, null=True, blank=True)
     phone_number = models.CharField(max_length=20, default=None, null=True, blank=True)
-    venue_type = models.ForeignKey(VenueType, on_delete=models.CASCADE, default=None, null=True, blank=True)
+    venue_type = models.ForeignKey(VenueTypes, on_delete=models.CASCADE, default=None, null=True, blank=True)
     owner_manager_information = models.TextField(default=None, null=True, blank=True)
     description = models.TextField(default=None, null=True, blank=True)
     year_of_establishment = models.PositiveIntegerField(default=None, null=True, blank=True)
     ownership_type = models.CharField(max_length=255, default=None, null=True, blank=True)
-    unique_identifier = models.CharField(max_length=255, default=None, null=True, blank=True)
-    photos = models.ImageField(upload_to='venue_photos/', null=True, blank=True)
     
     class Meta:
         db_table = 'venues'
 
-# Define the Social Media Handles Model
-class SocialMediaHandles(models.Model):
+# Define the Venue Social Media Handles Model
+class VenueSocialMediaHandles(models.Model):
     """
     Represents social media handles associated with venues.
     """
     social_media_handle_id = models.AutoField(primary_key=True)
-    venue = models.ForeignKey(Venue, on_delete=models.CASCADE, default=None, null=True, blank=True)
+    venue = models.ForeignKey(Venues, on_delete=models.CASCADE, default=None, null=True, blank=True)
     facebook_url = models.URLField(max_length=255, default=None, null=True, blank=True)
     instagram_url = models.URLField(max_length=255, default=None, null=True, blank=True)
     twitter_url = models.URLField(max_length=255, default=None, null=True, blank=True)
@@ -50,7 +48,7 @@ class SocialMediaHandles(models.Model):
     youtube_url = models.URLField(max_length=255, default=None, null=True, blank=True)
 
     class Meta:
-        db_table = 's_m_handles'
+        db_table = 'venue_s_m_handles'
 
 # Define the Venue Facilities Model
 class VenueFacilities(models.Model):
@@ -58,7 +56,7 @@ class VenueFacilities(models.Model):
     Represents facilities available at venues.
     """
     venue_facilities_id = models.AutoField(primary_key=True)
-    venue = models.ForeignKey(Venue, on_delete=models.CASCADE, default=None, null=True, blank=True)
+    venue = models.ForeignKey(Venues, on_delete=models.CASCADE, default=None, null=True, blank=True)
     total_area = models.PositiveIntegerField(default=None, null=True, blank=True)
     indoor_area = models.PositiveIntegerField(default=None, null=True, blank=True)
     outdoor_area = models.PositiveIntegerField(default=None, null=True, blank=True)
@@ -106,7 +104,7 @@ class VenueServices(models.Model):
     Represents services offered at venues.
     """
     venue_services_id = models.AutoField(primary_key=True)
-    venue = models.ForeignKey(Venue, on_delete=models.CASCADE, default=None, null=True, blank=True)
+    venue = models.ForeignKey(Venues, on_delete=models.CASCADE, default=None, null=True, blank=True)
     catering_services = models.BooleanField(default=None, null=True, blank=True)
     types_of_cuisine = models.TextField(default=None, null=True, blank=True)
     bar_services = models.BooleanField(default=None, null=True, blank=True)
@@ -145,7 +143,7 @@ class VenueBookings(models.Model):
     Represents booking details for venues.
     """
     venue_booking_id = models.AutoField(primary_key=True)
-    venue = models.ForeignKey(Venue, on_delete=models.CASCADE, default=None, null=True, blank=True)
+    venue = models.ForeignKey(Venues, on_delete=models.CASCADE, default=None, null=True, blank=True)
     availability = models.BooleanField(default=None, null=True, blank=True)
     minimum_notice_period = models.PositiveIntegerField(default=None, null=True, blank=True)
     cancellation_policy = models.TextField(default=None, null=True, blank=True)
@@ -178,11 +176,9 @@ class VenueEvents(models.Model):
     Represents events hosted at venues.
     """
     venue_events_id = models.AutoField(primary_key=True)
-    venue = models.ForeignKey(Venue, on_delete=models.CASCADE, default=None, null=True, blank=True)
+    venue = models.ForeignKey(Venues, on_delete=models.CASCADE, default=None, null=True, blank=True)
     types_of_events_hosted = models.TextField(default=None, null=True, blank=True)
     client_testimonials_and_reviews = models.TextField(default=None, null=True, blank=True)
-    photos_from_past_events = models.ImageField(upload_to='event_photos/', null=True, blank=True)
-    videos_from_past_events = models.FileField(upload_to='event_videos/', null=True, blank=True)
     number_of_events_hosted = models.PositiveIntegerField(default=None, null=True, blank=True)
     notable_events_or_clients = models.TextField(default=None, null=True, blank=True)
     client_references = models.TextField(default=None, null=True, blank=True)
@@ -197,13 +193,25 @@ class VenueEvents(models.Model):
     class Meta:
         db_table = 'events'
 
+class VenuePhotos(models.Model):
+    """
+    Represents photos associated with venues.
+    """
+    venue_photo_id = models.AutoField(primary_key=True)
+    venue = models.ForeignKey(Venues, on_delete=models.CASCADE)
+    photo = models.ImageField(upload_to='venue_photos/')  # For images
+
+    class Meta:
+        db_table = 'venue_photos'
+
+
 # Define the Venue Legal Compliances Model
 class VenueLegalCompliances(models.Model):
     """
     Represents legal compliances and certifications associated with venues.
     """
     venue_legal_compliance_id = models.AutoField(primary_key=True)
-    venue = models.ForeignKey(Venue, on_delete=models.CASCADE, default=None, null=True, blank=True)
+    venue = models.ForeignKey(Venues, on_delete=models.CASCADE, default=None, null=True, blank=True)
     licenses_and_permits = models.TextField(default=None, null=True, blank=True)
     safety_measures = models.TextField(default=None, null=True, blank=True)
     business_registration_details = models.TextField(default=None, null=True, blank=True)
@@ -223,29 +231,34 @@ class VenueLegalCompliances(models.Model):
 
     class Meta:
         db_table = 'legal_compliances'
-    
-    
-# Define the Venue Preferred Vendors Model
-class VenuePreferredVendors(models.Model):
+
+
+# Define the Vendor type Model
+class VendorTypes(models.Model):
     """
-    Represents preferred vendors for venues.
+    Represents type of vendors.
     """
-    venue_preferred_vendors_id = models.AutoField(primary_key=True)
-    venue = models.ForeignKey(Venue, on_delete=models.CASCADE, default=None, null=True, blank=True)
-    preferred_catering_vendor = models.CharField(max_length=255, default=None, null=True, blank=True)
-    preferred_design_and_decor_vendor = models.CharField(max_length=255, default=None, null=True, blank=True)
-    preferred_travel_vendor = models.CharField(max_length=255, default=None, null=True, blank=True)
-    preferred_beauty_vendor = models.CharField(max_length=255, default=None, null=True, blank=True)
-    preferred_photography_vendor = models.CharField(max_length=255, default=None, null=True, blank=True)
-    preferred_event_planning_vendor = models.CharField(max_length=255, default=None, null=True, blank=True)
-    preferred_audio_visual_equipment_vendor = models.CharField(max_length=255, default=None, null=True, blank=True)
-    preferred_entertainment_vendor = models.CharField(max_length=255, default=None, null=True, blank=True)
-    preferred_accommodation_vendor = models.CharField(max_length=255, default=None, null=True, blank=True)
-    preferred_printing_and_signage_vendor = models.CharField(max_length=255, default=None, null=True, blank=True)
-    preferred_security_services_vendor = models.CharField(max_length=255, default=None, null=True, blank=True)
+    vendor_type_id = models.AutoField(primary_key=True)
+    type_name = models.CharField(max_length=255)
 
     class Meta:
-        db_table = 'venue_vendors'
+        db_table = 'vendor_types'
+    
+    def __str__(self):
+        return self.type_name
+    
+class Cities(models.Model):
+    """
+    Represents different cities.
+    """
+    city_id = models.AutoField(primary_key=True)
+    city_name = models.CharField(max_length=255)
+
+    class Meta:
+        db_table = 'cities'
+    
+    def __str__(self):
+        return self.city_name
 
 # Define the Vendors Model
 class Vendors(models.Model):
@@ -254,18 +267,56 @@ class Vendors(models.Model):
     """
     vendor_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
-    contact_information = models.EmailField(default=None, null=True, blank=True)
-    vendor_type = models.CharField(max_length=255, default=None, null=True, blank=True)
+    contact_email = models.EmailField(default=None, null=True, blank=True)
+    vendor_type = models.ForeignKey(VendorTypes, on_delete=models.SET_NULL, null=True, blank=True)
     products_or_services = models.TextField(default=None, null=True, blank=True)
     address = models.TextField(default=None, null=True, blank=True)
+    city = models.ForeignKey(Cities, on_delete=models.SET_NULL, null=True, blank=True)
     website = models.URLField(default=None, null=True, blank=True)
-    email = models.EmailField(default=None, null=True, blank=True)
     phone_number = models.CharField(max_length=20, default=None, null=True, blank=True)
     description = models.TextField(default=None, null=True, blank=True)
     availability = models.BooleanField(default=False)
     insurance_coverage = models.TextField(default=None, null=True, blank=True)
     licenses_and_permits = models.TextField(default=None, null=True, blank=True)
     preferred_venues = models.TextField(default=None, null=True, blank=True)
-
+    facebook_url = models.URLField(max_length=255, default=None, null=True, blank=True)
+    instagram_url = models.URLField(max_length=255, default=None, null=True, blank=True)
+    twitter_url = models.URLField(max_length=255, default=None, null=True, blank=True)
+    linkedin_url = models.URLField(max_length=255, default=None, null=True, blank=True)
+    youtube_url = models.URLField(max_length=255, default=None, null=True, blank=True)
+    
     class Meta:
         db_table = 'vendors'
+    
+    def __str__(self):
+        return self.name
+
+
+class VendorPhotos(models.Model):
+    """
+    Represents photos associated with vendors.
+    """
+    vendor_photo_id = models.AutoField(primary_key=True)
+    vendor = models.ForeignKey(Vendors, on_delete=models.CASCADE)
+    photo = models.ImageField(upload_to='vendor_photos/')  # For images
+
+    class Meta:
+        db_table = 'vendor_photos'
+
+ 
+
+
+# Define the Venue Preferred Vendors Model
+class VenuePreferredVendors(models.Model):
+    """
+    Represents preferred vendors for venues.
+    """
+    venue_preferred_vendors_id = models.AutoField(primary_key=True)
+    venue = models.ForeignKey(Venues, on_delete=models.CASCADE, default=None, null=True, blank=True)
+    vendor = models.ForeignKey(Vendors, on_delete=models.CASCADE)  # Foreign key to Vendors model
+    vendor_type = models.ForeignKey(VendorTypes, on_delete=models.SET_NULL, null=True, blank=True)
+
+    class Meta:
+        db_table = 'venue_vendors'
+
+
