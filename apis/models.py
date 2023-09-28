@@ -30,9 +30,6 @@ class Venues(models.Model):
     email = models.EmailField(default=None, null=True, blank=True)
     phone_number = models.CharField(max_length=20, default=None, null=True, blank=True)
     venue_type = models.ForeignKey(VenueTypes, on_delete=models.CASCADE, default=None, null=True, blank=True)
-    owner_manager_name = models.CharField(max_length=255, default=None, null=True, blank=True)
-    owner_manager_email = models.EmailField(default=None, null=True, blank=True)
-    owner_manager_phone = models.CharField(max_length=20, default=None, null=True, blank=True)
     description = models.TextField(default=None, null=True, blank=True)
     year_of_establishment = models.PositiveIntegerField(default=None, null=True, blank=True)
     ownership_type = models.CharField(max_length=255, default=None, null=True, blank=True)
@@ -63,20 +60,23 @@ class VenueMedia(models.Model):
         db_table = 'venue_media'
 
 # Define the Venue Social Media Handles Model
-class VenueSocialMediaHandles(models.Model):
+class VenueAdditionalInfo(models.Model):
     """
     Represents social media handles associated with venues.
     """
-    social_media_handle_id = models.AutoField(primary_key=True)
+    venue_add_info_id = models.AutoField(primary_key=True)
     venue = models.ForeignKey(Venues, on_delete=models.CASCADE, default=None, null=True, blank=True)
-    facebook_url = models.URLField(max_length=255, default=None, null=True, blank=True)
-    instagram_url = models.URLField(max_length=255, default=None, null=True, blank=True)
-    twitter_url = models.URLField(max_length=255, default=None, null=True, blank=True)
-    linkedin_url = models.URLField(max_length=255, default=None, null=True, blank=True)
-    youtube_url = models.URLField(max_length=255, default=None, null=True, blank=True)
+    owner_manager_name = models.CharField(max_length=255, default=None, null=True, blank=True)
+    owner_manager_email = models.EmailField(default=None, null=True, blank=True)
+    owner_manager_phone = models.CharField(max_length=20, default=None, null=True, blank=True)
+    facebook_url = models.CharField(max_length=255, default=None, null=True, blank=True)
+    instagram_url = models.CharField(max_length=255, default=None, null=True, blank=True)
+    twitter_url = models.CharField(max_length=255, default=None, null=True, blank=True)
+    linkedin_url = models.CharField(max_length=255, default=None, null=True, blank=True)
+    youtube_url = models.CharField(max_length=255, default=None, null=True, blank=True)
 
     class Meta:
-        db_table = 'venue_s_m_handles'
+        db_table = 'venue_add_info'
 
 # Define the Venue Facilities Model
 class VenueFacilities(models.Model):
@@ -294,11 +294,11 @@ class Vendors(models.Model):
     insurance_coverage = models.TextField(default=None, null=True, blank=True)
     licenses_and_permits = models.TextField(default=None, null=True, blank=True)
     preferred_venues = models.TextField(default=None, null=True, blank=True)
-    facebook_url = models.URLField(max_length=255, default=None, null=True, blank=True)
-    instagram_url = models.URLField(max_length=255, default=None, null=True, blank=True)
-    twitter_url = models.URLField(max_length=255, default=None, null=True, blank=True)
-    linkedin_url = models.URLField(max_length=255, default=None, null=True, blank=True)
-    youtube_url = models.URLField(max_length=255, default=None, null=True, blank=True)
+    facebook_url = models.CharField(max_length=255, default=None, null=True, blank=True)
+    instagram_url = models.CharField(max_length=255, default=None, null=True, blank=True)
+    twitter_url = models.CharField(max_length=255, default=None, null=True, blank=True)
+    linkedin_url = models.CharField(max_length=255, default=None, null=True, blank=True)
+    youtube_url = models.CharField(max_length=255, default=None, null=True, blank=True)
     created_at = models.DateTimeField(default=datetime.now)
     updated_at = models.DateTimeField(default=datetime.now)
     

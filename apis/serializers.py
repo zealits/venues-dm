@@ -80,15 +80,15 @@ class VenueMediaSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
         
-class VenueSocialMediaHandlesSerializer(serializers.ModelSerializer):
+class VenueAdditionalInfoSerializer(serializers.ModelSerializer):
     """
-    Serializer for VenueSocialMediaHandles model.
+    Serializer for VenueAdditionalInfo model.
 
-    This serializer is used to convert VenueSocialMediaHandles model instances into JSON data.
-    It includes all fields of the VenueSocialMediaHandles model.
+    This serializer is used to convert VenueAdditionalInfo model instances into JSON data.
+    It includes all fields of the VenueAdditionalInfo model.
     """
     class Meta:
-        model = VenueSocialMediaHandles
+        model = VenueAdditionalInfo
         fields = '__all__'
         
 class VenueFacilitiesSerializer(serializers.ModelSerializer):
