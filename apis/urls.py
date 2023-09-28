@@ -11,7 +11,7 @@ router.register(r'cities', CitiesViewSet)
 router.register(r'venue-types', VenueTypesViewSet)
 router.register(r'venues', VenuesViewSet)
 router.register(r'venue-media', VenueMediaViewSet)
-router.register(r'venue-social', VenueSocialMediaHandlesViewSet)
+router.register(r'venue-social', VenueAdditionalInfoViewSet)
 router.register(r'venue-facility', VenueFacilitiesViewSet)
 router.register(r'venue-services', VenueServicesViewSet)
 router.register(r'venue-bookings', VenueBookingsViewSet)
@@ -29,7 +29,7 @@ urlpatterns = [
     path('api/venues/<int:pk>/', views.VenuesViewSet.as_view({'delete': 'destroy'}), name='venue-delete'),
     path('api/venues/<int:pk>/', views.VenuesViewSet.as_view({'get': 'retrieve'}), name='venue-detail'),
     path('api/venues/<int:pk>/', views.VenuesViewSet.as_view({'put': 'update'}), name='venue-update'),
-    path('api/venueSocial/<int:venue_id>/', views.VenueSocialListView.as_view(), name='venue_social-list'),
+    path('api/venueSocial/<int:venue_id>/', views.VenueAdditionalInfoListView.as_view(), name='venue_social-list'),
     path('api/venueFacility/<int:venue_id>/', views.VenueFacilityListView.as_view(), name='venue_facility-list'),
     path('api/venueService/<int:venue_id>/', views.VenueServiceListView.as_view(), name='venue_service-list'),
     path('api/venueBooking/<int:venue_id>/', views.VenueBookingListView.as_view(), name='venue_booking-list'),

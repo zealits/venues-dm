@@ -79,16 +79,16 @@ class VenueMediaViewSet(viewsets.ModelViewSet):
     serializer_class = VenueMediaSerializer
     
 
-class VenueSocialMediaHandlesViewSet(viewsets.ModelViewSet):
+class VenueAdditionalInfoViewSet(viewsets.ModelViewSet):
     """
-    Viewset for VenueSocialMediaHandles model.
+    Viewset for VenueAdditionalInfo model.
 
-    This viewset provides CRUD (Create, Read, Update, Delete) operations for the VenueSocialMediaHandles model.
-    It uses the VenueSocialMediaHandlesSerializer for serialization and deserialization.
+    This viewset provides CRUD (Create, Read, Update, Delete) operations for the VenueAdditionalInfo model.
+    It uses the VenueAdditionalInfoSerializer for serialization and deserialization.
     """
     
-    queryset = VenueSocialMediaHandles.objects.all()
-    serializer_class = VenueSocialMediaHandlesSerializer
+    queryset = VenueAdditionalInfo.objects.all()
+    serializer_class = VenueAdditionalInfoSerializer
     
 
 class VenueFacilitiesViewSet(viewsets.ModelViewSet):
@@ -174,14 +174,14 @@ class VendorListView(APIView):
             return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         
 
-class VenueSocialListView(APIView):
+class VenueAdditionalInfoListView(APIView):
     def get(self, request, venue_id):
         try:
             # Retrieve vendors based on vendor_type_id
-            venues = VenueSocialMediaHandles.objects.filter(venue=venue_id)
+            venues = VenueAdditionalInfo.objects.filter(venue=venue_id)
             
             # Serialize the vendors data (you may need to create a serializer)
-            serialized_venues = VenueSocialMediaHandlesSerializer(venues, many=True).data
+            serialized_venues = VenueAdditionalInfoSerializer(venues, many=True).data
             
             return Response(serialized_venues, status=status.HTTP_200_OK)
         except Exception as e:
