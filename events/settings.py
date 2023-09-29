@@ -85,19 +85,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'events.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'event',
-#         'USER': 'root',
-#         'PASSWORD': 'Golu@1234',
-#         'HOST': 'localhost',
-#         'PORT': '3306',
-#     }
-# }
 
 
 import dj_database_url;
